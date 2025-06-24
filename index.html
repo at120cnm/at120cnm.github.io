@@ -1,340 +1,349 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-    <link rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/4.7.0/css/font-awesome.min.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>我的个人主页</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <style>
-        /* 基础样式 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            line-height: 1.6;
-            background: #f9f9f9;
-            color: #333;
-        }
-        a {
-            text-decoration: none;
-            color: #2c3e50;
-        }
-        
-        /* 布局样式 */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* 头部样式 */
-        header {
-            background: linear-gradient(135deg, #3498db, #2c3e50);
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-        }
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-        
-        /* 导航栏 */
-        nav {
-            background: #2c3e50;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+      /* 基础样式 */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        line-height: 1.6;
+        background: #f9f9f9;
+        color: #333;
+      }
+      a {
+        text-decoration: none;
+        color: #2c3e50;
+      }
+
+      /* 布局样式 */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* 头部样式 */
+      header {
+        background: linear-gradient(135deg, #3498db, #2c3e50);
+        color: white;
+        padding: 60px 0;
+        text-align: center;
+      }
+      header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+      }
+      header p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+
+      /* 导航栏 */
+      nav {
+        background: #2c3e50;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      nav ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+      }
+      nav li {
+        margin: 0 15px;
+      }
+      nav a {
+        display: block;
+        padding: 15px;
+        color: white;
+        transition: all 0.3s ease;
+      }
+      nav a:hover {
+        background: #3498db;
+      }
+
+      /* 主要内容区 */
+      section {
+        padding: 50px 0;
+      }
+      section h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 2rem;
+        color: #2c3e50;
+      }
+
+      /* 关于我 */
+      #about {
+        background: white;
+      }
+      .about-content {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+      }
+      .about-img {
+        flex: 1;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .about-img img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .about-text {
+        flex: 2;
+      }
+
+      /* 作品集 */
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+      }
+      .portfolio-item {
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+      .portfolio-item:hover {
+        transform: translateY(-10px);
+      }
+      .portfolio-img {
+        height: 200px;
+        overflow: hidden;
+      }
+      .portfolio-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+      .portfolio-item:hover .portfolio-img img {
+        transform: scale(1.1);
+      }
+      .portfolio-info {
+        padding: 20px;
+      }
+      .portfolio-info h3 {
+        margin-bottom: 10px;
+      }
+
+      /* 联系方式 */
+      #contact {
+        background: white;
+      }
+      .contact-form {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .form-group {
+        margin-bottom: 20px;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-family: inherit;
+      }
+      .form-group textarea {
+        height: 150px;
+      }
+      button {
+        background: #3498db;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background 0.3s ease;
+      }
+      button:hover {
+        background: #2980b9;
+      }
+
+      /* 页脚 */
+      footer {
+        background: #2c3e50;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+      }
+      .social-links {
+        margin: 20px 0;
+      }
+      .social-links a {
+        color: white;
+        margin: 0 10px;
+        font-size: 1.5rem;
+      }
+
+      /* 响应式设计 */
+      @media (max-width: 768px) {
+        .about-content {
+          flex-direction: column;
         }
         nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
+          flex-direction: column;
         }
         nav li {
-            margin: 0 15px;
+          margin: 5px 0;
         }
-        nav a {
-            display: block;
-            padding: 15px;
-            color: white;
-            transition: all 0.3s ease;
-        }
-        nav a:hover {
-            background: #3498db;
-        }
-        
-        /* 主要内容区 */
-        section {
-            padding: 50px 0;
-        }
-        section h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 2rem;
-            color: #2c3e50;
-        }
-        
-        /* 关于我 */
-        #about {
-            background: white;
-        }
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
-        .about-img {
-            flex: 1;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        .about-img img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        .about-text {
-            flex: 2;
-        }
-        
-        /* 作品集 */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        .portfolio-item {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-        .portfolio-item:hover {
-            transform: translateY(-10px);
-        }
-        .portfolio-img {
-            height: 200px;
-            overflow: hidden;
-        }
-        .portfolio-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        .portfolio-item:hover .portfolio-img img {
-            transform: scale(1.1);
-        }
-        .portfolio-info {
-            padding: 20px;
-        }
-        .portfolio-info h3 {
-            margin-bottom: 10px;
-        }
-        
-        /* 联系方式 */
-        #contact {
-            background: white;
-        }
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-family: inherit;
-        }
-        .form-group textarea {
-            height: 150px;
-        }
-        button {
-            background: #3498db;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: background 0.3s ease;
-        }
-        button:hover {
-            background: #2980b9;
-        }
-        
-        /* 页脚 */
-        footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-        }
-        .social-links {
-            margin: 20px 0;
-        }
-        .social-links a {
-            color: white;
-            margin: 0 10px;
-            font-size: 1.5rem;
-        }
-        
-        /* 响应式设计 */
-        @media (max-width: 768px) {
-            .about-content {
-                flex-direction: column;
-            }
-            nav ul {
-                flex-direction: column;
-            }
-            nav li {
-                margin: 5px 0;
-            }
-        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- 头部区域 -->
     <header>
-        <div class="container">
-            <h1>feizai的个人主页</h1>
-            <p>前端开发者 | 设计师 | 摄影爱好者</p>
-        </div>
+      <div class="container">
+        <h1>feizai的个人主页</h1>
+        <p>前端开发者 | 设计师 | 摄影爱好者</p>
+      </div>
     </header>
-    
+
     <!-- 导航栏 -->
     <nav>
-        <div class="container">
-            <ul>
-                <li><a href="#about">关于我</a></li>
-                <li><a href="temper/temper.html">作品集</a></li>
-                <li><a href="#contact">联系方式</a></li>
-            </ul>
-        </div>
+      <div class="container">
+        <ul>
+          <li><a href="#about">关于我</a></li>
+          <li><a href="temper/temper.html">作品集</a></li>
+          <li><a href="#contact">联系方式</a></li>
+        </ul>
+      </div>
     </nav>
-    
+
     <!-- 主要内容 -->
     <main>
-        <!-- 关于我 -->
-        <section id="about">
-            <div class="container">
-                <h2>关于我</h2>
-                <div class="about-content">
-                    <div class="about-img">
-                        <img src="https://via.placeholder.com/400x500" alt="我的照片">
-                    </div>
-                    <div class="about-text">
-                        <p>你好！我是张三，一名有3年前端开发经验的专业人士。我热衷于创造美观、用户友好的网站和应用。</p>
-                        <p>我毕业于XX大学计算机科学专业，曾在多家科技公司担任前端开发工程师。我精通HTML、CSS、JavaScript以及React框架。</p>
-                        <p>在工作之余，我喜欢摄影、旅行和阅读。这些爱好不仅丰富了我的生活，也为我的设计工作带来了灵感。</p>
-                    </div>
-                </div>
+      <!-- 关于我 -->
+      <section id="about">
+        <div class="container">
+          <h2>关于我</h2>
+          <div class="about-content">
+            <div class="about-img">
+              <img src="https://cdn.pixabay.com/photo/2025/06/16/14/06/ring-necked-parakeet-9663360_1280.jpg" alt="我的照片" />
             </div>
-        </section>
-        
-        <!-- 作品集 -->
-        <section id="portfolio">
-            <div class="container">
-                <h2>我的作品</h2>
-                <div class="portfolio-grid">
-                    <!-- 作品1 -->
-                    <div class="portfolio-item">
-                        <div class="portfolio-img">
-                            <img src="https://via.placeholder.com/600x400" alt="项目1">
-                        </div>
-                        <div class="portfolio-info">
-                            <h3>电子商务网站</h3>
-                            <p>一个全功能的电子商务平台，使用React和Node.js构建。</p>
-                            <a href="#">查看详情 →</a>
-                        </div>
-                    </div>
-                    
-                    <!-- 作品2 -->
-                    <div class="portfolio-item">
-                        <div class="portfolio-img">
-                            <img src="https://via.placeholder.com/600x400" alt="项目2">
-                        </div>
-                        <div class="portfolio-info">
-                            <h3>移动应用UI设计</h3>
-                            <p>为健康追踪应用设计的用户界面和用户体验。</p>
-                            <a href="#">查看详情 →</a>
-                        </div>
-                    </div>
-                    
-                    <!-- 作品3 -->
-                    <div class="portfolio-item">
-                        <div class="portfolio-img">
-                            <img src="https://via.placeholder.com/600x400" alt="项目3">
-                        </div>
-                        <div class="portfolio-info">
-                            <h3>个人博客系统</h3>
-                            <p>使用Vue.js和Firebase构建的响应式博客系统。</p>
-                            <a href="#">查看详情 →</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="about-text">
+              <p>
+                你好！我是张三，一名有3年前端开发经验的专业人士。我热衷于创造美观、用户友好的网站和应用。
+              </p>
+              <p>
+                我毕业于XX大学计算机科学专业，曾在多家科技公司担任前端开发工程师。我精通HTML、CSS、JavaScript以及React框架。
+              </p>
+              <p>
+                在工作之余，我喜欢摄影、旅行和阅读。这些爱好不仅丰富了我的生活，也为我的设计工作带来了灵感。
+              </p>
             </div>
-        </section>
-        
-        <!-- 联系方式 -->
-        <section id="contact">
-            <div class="container">
-                <h2>联系我</h2>
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <label for="name">姓名</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">邮箱</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">留言</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        <button type="submit">发送消息</button>
-                    </form>
-                </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 作品集 -->
+      <section id="portfolio">
+        <div class="container">
+          <h2>我的作品</h2>
+          <div class="portfolio-grid">
+            <!-- 作品1 -->
+            <div class="portfolio-item">
+              <div class="portfolio-img">
+                <img src="https://cdn.pixabay.com/photo/2025/06/06/07/15/white-owl-9644261_1280.jpg" alt="项目1" />
+              </div>
+              <div class="portfolio-info">
+                <h3>电子商务网站</h3>
+                <p>一个全功能的电子商务平台，使用React和Node.js构建。</p>
+                <a href="#">查看详情 →</a>
+              </div>
             </div>
-        </section>
+
+            <!-- 作品2 -->
+            <div class="portfolio-item">
+              <div class="portfolio-img">
+                <img src="https://cdn.pixabay.com/photo/2024/12/27/19/25/flower-9294773_1280.png" alt="项目2" />
+              </div>
+              <div class="portfolio-info">
+                <h3>移动应用UI设计</h3>
+                <p>为健康追踪应用设计的用户界面和用户体验。</p>
+                <a href="#">查看详情 →</a>
+              </div>
+            </div>
+
+            <!-- 作品3 -->
+            <div class="portfolio-item">
+              <div class="portfolio-img">
+                <img src="https://cdn.pixabay.com/photo/2025/04/24/08/07/spa-9554878_1280.jpg" alt="项目3" />
+              </div>
+              <div class="portfolio-info">
+                <h3>个人博客系统</h3>
+                <p>使用Vue.js和Firebase构建的响应式博客系统。</p>
+                <a href="#">查看详情 →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 联系方式 -->
+      <section id="contact">
+        <div class="container">
+          <h2>联系我</h2>
+          <div class="contact-form">
+            <form>
+              <div class="form-group">
+                <label for="name">姓名</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">邮箱</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label for="message">留言</label>
+                <textarea id="message" name="message" required></textarea>
+              </div>
+              <button type="submit">发送消息</button>
+            </form>
+          </div>
+        </div>
+      </section>
     </main>
-    
+
     <!-- 页脚 -->
     <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-            </div>
-            <p>&copy; 2025 张三的个人主页. 保留所有权利.</p>
+      <div class="container">
+        <div class="social-links">
+          <a href="#"><i class="fa fa-github"></i></a>
+          <a href="#"><i class="fa fa-linkedin"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-instagram"></i></a>
         </div>
+        <p>&copy; 2025 张三的个人主页. 保留所有权利.</p>
+      </div>
     </footer>
-    
+
     <!-- Font Awesome图标库 (实际使用时需要引入) -->
-    <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous"></script>
-</body>
+  </body>
 </html>
